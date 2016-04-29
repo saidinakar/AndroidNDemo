@@ -16,10 +16,11 @@
 
 package com.android.multiwindowplayground.activities;
 
-import com.android.multiwindowplayground.R;
-
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.android.multiwindowplayground.R;
 
 /**
  * This Activity is to be launched adjacent to another Activity using the {@link
@@ -27,15 +28,13 @@ import android.view.View;
  *
  * @see com.android.multiwindowplayground.MainActivity#onStartAdjacentActivity(View)
  */
-public class AdjacentActivity extends LoggingActivity {
+public class AdjacentActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logging);
+        setContentView(R.layout.generic_layout);
 
-        setBackgroundColor(R.color.teal);
-        setDescription(R.string.activity_adjacent_description);
     }
 
 }

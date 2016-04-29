@@ -16,59 +16,31 @@
 
 package com.android.multiwindowplayground;
 
-import com.android.multiwindowplayground.activities.AdjacentActivity;
-import com.android.multiwindowplayground.activities.BasicActivity;
-import com.android.multiwindowplayground.activities.CustomConfigurationChangeActivity;
-import com.android.multiwindowplayground.activities.LaunchBoundsActivity;
-import com.android.multiwindowplayground.activities.LoggingActivity;
-import com.android.multiwindowplayground.activities.MinimumSizeActivity;
-import com.android.multiwindowplayground.activities.UnresizableActivity;
-
-import android.app.ActivityOptions;
+import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends LoggingActivity {
+import com.android.multiwindowplayground.activities.AdjacentActivity;
+import com.android.multiwindowplayground.activities.BasicActivity;
+import com.android.multiwindowplayground.activities.CustomConfigurationChangeActivity;
+import com.android.multiwindowplayground.activities.NotificationsActivity;
+
+public class MainActivity extends Activity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        View multiDisabledMessage = findViewById(R.id.warning_multiwindow_disabled);
-        // Display an additional message if the app is not in multiwindow mode.
-        if (!isInMultiWindowMode()) {
-            multiDisabledMessage.setVisibility(View.VISIBLE);
-        } else {
-            multiDisabledMessage.setVisibility(View.GONE);
-        }
     }
 
-    public void onStartUnresizableClick(View view) {
-        Log.d(mLogTag, "** starting UnresizableActivity");
-
-        /*
-         * This activity is marked as 'unresizable' in the AndroidManifest. We need to specify the
-         * FLAG_ACTIVITY_NEW_TASK flag here to launch it into a new task stack, otherwise the
-         * properties from the root activity would have been inherited (which was here marked as
-         * resizable by default).
-        */
-        Intent intent = new Intent(this, UnresizableActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-    }
-
-    public void onStartMinimumSizeActivity(View view) {
-        Log.d(mLogTag, "** starting MinimumSizeActivity");
-
-        startActivity(new Intent(this, MinimumSizeActivity.class));
-    }
 
     public void onStartAdjacentActivity(View view) {
-        Log.d(mLogTag, "** starting AdjacentActivity");
+        Log.d(TAG, "** starting AdjacentActivity");
 
         /*
          * Start this activity adjacent to the focused activity (ie. this activity) if possible.
@@ -82,24 +54,9 @@ public class MainActivity extends LoggingActivity {
         startActivity(intent);
     }
 
-    public void onStartLaunchBoundsActivity(View view) {
-        Log.d(mLogTag, "** starting LaunchBoundsActivity");
-
-        // Define the bounds in which the Activity will be launched into.
-        Rect bounds = new Rect(500, 300, 100, 0);
-
-        // Set the bounds as an activity option.
-        ActivityOptions options = ActivityOptions.makeBasic();
-        options.setLaunchBounds(bounds);
-
-        // Start the LaunchBoundsActivity with the specified options
-        Intent intent = new Intent(this, LaunchBoundsActivity.class);
-        startActivity(intent, options.toBundle());
-
-    }
 
     public void onStartBasicActivity(View view) {
-        Log.d(mLogTag, "** starting BasicActivity");
+        Log.d(TAG, "** starting BasicActivity");
 
         // Start an Activity with the default options in the 'singleTask' launch mode as defined in
         // the AndroidManifest.xml.
@@ -108,10 +65,14 @@ public class MainActivity extends LoggingActivity {
     }
 
     public void onStartCustomConfigurationActivity(View view) {
-        Log.d(mLogTag, "** starting CustomConfigurationChangeActivity");
+        Log.d(TAG, "** starting CustomConfigurationChangeActivity");
 
         // Start an Activity that handles all configuration changes itself.
         startActivity(new Intent(this, CustomConfigurationChangeActivity.class));
 
+    }
+
+    public void onGenerateNotification(View view) {
+        startActivity(new Intent(this, NotificationsActivity.class));
     }
 }

@@ -16,10 +16,11 @@
 
 package com.android.multiwindowplayground.activities;
 
-import com.android.multiwindowplayground.R;
-
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.android.multiwindowplayground.R;
 
 /**
  * This activity is the most basic, simeple use case and is to be launched without any special
@@ -28,16 +29,14 @@ import android.view.View;
  *
  * @see com.android.multiwindowplayground.MainActivity#onStartBasicActivity(View)
  */
-public class BasicActivity extends LoggingActivity {
+public class BasicActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logging);
+        setContentView(R.layout.generic_layout);
 
-        // Set the color and description
-        setDescription(R.string.activity_description_basic);
-        setBackgroundColor(R.color.gray);
+
 
     }
 }

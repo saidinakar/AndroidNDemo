@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/fst239/Downloads/android-MultiWindowPlayground/Application/build/intermediates/res/merged/debug/mipmap-xxxhdpi-v4/ic_launcher.png",
+        "source": "/Users/fst239/Downloads/android-MultiWindowPlayground/Application/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/fst239/Downloads/android-MultiWindowPlayground/Application/build/intermediates/res/merged/debug/mipmap-xxxhdpi-v4/message.png",
+        "source": "/Users/fst239/Downloads/android-MultiWindowPlayground/Application/src/main/res/mipmap-xxxhdpi/message.png"
+    },
+    {
+        "merged": "/Users/fst239/Downloads/android-MultiWindowPlayground/Application/build/intermediates/res/merged/debug/mipmap-xxxhdpi-v4/androidn.jpg",
+        "source": "/Users/fst239/Downloads/android-MultiWindowPlayground/Application/src/main/res/mipmap-xxxhdpi/androidn.jpg"
+    }
+]

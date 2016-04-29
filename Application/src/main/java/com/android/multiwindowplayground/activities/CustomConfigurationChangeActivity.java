@@ -16,29 +16,28 @@
 
 package com.android.multiwindowplayground.activities;
 
-import com.android.multiwindowplayground.R;
-
+import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.multiwindowplayground.R;
+
 /**
  * This activity handles configuration changes itself. The list of configuration changes that are
  * supported is defined in its AndroidManifest definition. Each configuration change triggers a
- * call to {@link #onConfigurationChanged(Configuration)}, which is logged in the {@link
- * LoggingActivity}.
+ * call to {@link #onConfigurationChanged(Configuration)}.
  *
  * @see com.android.multiwindowplayground.MainActivity#onStartCustomConfigurationActivity(View)
  */
-public class CustomConfigurationChangeActivity extends LoggingActivity {
+public class CustomConfigurationChangeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logging);
+        setContentView(R.layout.generic_layout);
 
-        setBackgroundColor(R.color.cyan);
-        setDescription(R.string.activity_custom_description);
+
     }
 
     @Override
