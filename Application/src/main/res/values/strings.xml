@@ -72,7 +72,7 @@
         the Activity that launched this one would have been applied.
     </string>
     <string name="reply_label">Reply</string>
-    <string name="label">Android N Notification</string>
+    <string name="label">Android N Notification.</string>
     <string name="content">"Hey, there, I'm the new android notification"</string>
     <string name="notificationsButton">Generate Android N Notification</string>
 </resources>
